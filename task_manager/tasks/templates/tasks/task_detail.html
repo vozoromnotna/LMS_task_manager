@@ -1,0 +1,9 @@
+{% extends 'base/base.html'%}
+{% block content %}
+
+    <h1>{{ task.name }}</h1>
+    <p><a href={% url "tasks:task_update" task.project.id task.id %}>Изменить задачу</a></p>
+    <p><a href={% url "tasks:task_delete" task.project.id task.id %} >Удалить задачу</a></p>
+    <p>{{ task.description }}</p>
+    
+{% endblock %}

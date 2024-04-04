@@ -1,0 +1,14 @@
+{% extends 'base/base.html'%}
+{% block content %}
+
+    <h1>{{ bug.title }}</h1>
+    <p>Описание: {{ bug.description }}</p>
+    <p>Проект: {{ bug.project.name }}</p>
+    <p>Задача: {{ bug.task.name }}</p>
+    <p>Статус: {{ bug.get_status_display }} </p>
+    <p>
+        <a href={% url 'quality_control:bug_update' bug.id %}>Изменить</a>
+        <a href={% url 'quality_control:bug_delete' bug.id %}>Удалить</a>
+    </p>
+    
+{% endblock %}

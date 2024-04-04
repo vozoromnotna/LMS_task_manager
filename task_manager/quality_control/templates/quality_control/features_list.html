@@ -1,0 +1,17 @@
+{% extends 'base/base.html'%}
+{% block content %}
+
+    <h1>Список улучшений</h1>
+    {% if features_list %}
+    <ul>
+        
+        {% for feature in features_list %}
+            <li><a href={% url "quality_control:feature_details" feature.id %}>{{ feature.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <h2>Пока улучшений не предложено</h2>
+    {% endif %}
+    <p><a href={% url 'quality_control:feature_add' %}>Предложить улучшение</a></p>
+    
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base/base.html'%}
+{% block content %}
+
+    <h1>{{ feature.title }}</h1>
+    <p>Описание: {{ feature.description }}</p>
+    <p>Проект: {{ feature.project.name }}</p>
+    <p>Задача: {{ feature.task.name }}</p>
+    <p>Статус: {{ feature.get_status_display }} </p>
+    <p>
+        <a href={% url 'quality_control:feature_update' feature.id %}>Изменить</a>
+        <a href={% url 'quality_control:feature_delete' feature.id %}>Удалить</a>
+    </p>
+{% endblock %}

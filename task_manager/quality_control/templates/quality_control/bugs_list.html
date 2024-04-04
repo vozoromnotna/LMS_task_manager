@@ -1,0 +1,17 @@
+{% extends 'base/base.html'%}
+{% block content %}
+
+    <h1>Список багов</h1>
+    {% if bugs_list %}
+    <ul>
+        {% for bug in bugs_list %}
+            <li><a href={% url 'quality_control:bug_details' bug.id %}>{{ bug.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <h2>Пока багов не обнаружено</h2>
+    {% endif %}
+    <p><a href={% url 'quality_control:bug_add' %}>Добавить отчет</a></p>
+    
+    
+{% endblock %}
